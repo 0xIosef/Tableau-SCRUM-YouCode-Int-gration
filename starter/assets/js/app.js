@@ -13,37 +13,51 @@ function createTask() {
     in_progress.innerHTML='';
     well_done.innerHTML='';
 
+    let to_do_count = 0;
+    let in_progress_count = 0;
+    let well_done_count = 0;
+
     // Afficher le boutton save
-    for (var i = 0 ; i < tasks.length; i++) {
-        let to_do_count = 0;
-          let btn = `<button id="${tasks[i].id}" class="d-flex w-100 bg-white border-0">
-              <div class="text-green fs-5 ps-3 py-2">
-                <i class="`+((tasks[i].the_status == "To Do") ? "fa-regular fa-circle-question" : (tasks[i].the_status == "In Progress") ? "fas fa-circle-notch fa-spin" : "fa-regular fa-circle-check")+`"></i> 
-              </div>
-              <div class="text-start ps-4 pb-3">
-                <div class="fs-5">${tasks[i].the_title}</div>
-                <div class="">
-                  <div class="fw-lighter">#${tasks[i].id} created in ${tasks[i].the_date}</div>
-                  <div class="fw-light" title="${tasks[i].the_description}">dkhfldsjf...</div>
+    for (let i = 0 ; i < tasks.length; i++) {
+        let btn = `
+        <div class="d-flex justify-content-end">
+            <button id="${tasks[i].id}" class="d-flex w-100 bg-white border-0">
+                <div class="text-green fs-5 ps-3 py-2">
+                    <i class="`+((tasks[i].the_status == "To Do") ? "fa-regular fa-circle-question" : (tasks[i].the_status == "In Progress") ? "fas fa-circle-notch fa-spin" : "fa-regular fa-circle-check")+`"></i>
                 </div>
-                <div class="mt-2">
-                  <span class="bg-blue text-white rounded-3 px-2 py-1">${tasks[i].the_priority}</span>
-                  <span class="bg-gray-400 rounded-3 px-2 py-1">${tasks[i].the_type}</span>
+                <div class="text-start ps-4 pb-3">
+                    <div class="fs-5">${tasks[i].the_title}</div>
+                    <div class="">
+                        <div class="fw-lighter">#${tasks[i].id} created in ${tasks[i].the_date}</div>
+                        <div class="fw-light" title="${tasks[i].the_description}">${tasks[i].the_description.substring(0, 70)}...</div>
+                    </div>
+                    <div class="mt-2">
+                        <span class="bg-blue text-white rounded-3 px-2 py-1">${tasks[i].the_priority}</span>
+                        <span class="bg-gray-400 rounded-3 px-2 py-1">${tasks[i].the_type}</span>
+                    </div>
                 </div>
-              </div>
-            </button>`
-            
-            if(tasks[i].the_status == 'To Do') {
-              to_do_count++;
-              to_do.innerHTML += btn;
-            }
-            else if(tasks[i].the_status == 'In Progress') {
-              in_progress.innerHTML += btn;
-            }
-            else if (tasks[i].the_status == 'Done') {
-              well_done.innerHTML += btn;
-            }
-      }
+            </button>
+            <button class="border-0 bg-white d-flex fs-5 py-2">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>`;
+        
+        if(tasks[i].the_status == 'To Do') {
+            to_do_count++;
+            to_do.innerHTML += btn;
+        }
+        else if(tasks[i].the_status == 'In Progress') {
+            in_progress_count++;
+            in_progress.innerHTML += btn;
+        }
+        else if (tasks[i].the_status == 'Done') {
+            well_done_count++;
+            well_done.innerHTML += btn;
+        }
+    }
+    document.getElementById('to-do-tasks-count').innerText = to_do_count;
+    document.getElementById('in-progress-tasks-count').innerText = in_progress_count;
+    document.getElementById('done-tasks-count').innerText = well_done_count;
 
     // Ouvrir modal form
     
