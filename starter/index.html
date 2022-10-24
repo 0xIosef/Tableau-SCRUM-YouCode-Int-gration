@@ -326,9 +326,9 @@
 				<div class="mt-2 ms-3">
 					<select class="form-select" id="Priority" aria-label="Default select example">
 						<option selected>Please select</option>
-						<option value="high">high</option>
-						<option value="medium">medium</option>
-						<option value="low">low</option>
+						<option value="High">high</option>
+						<option value="Medium">medium</option>
+						<option value="Low">low</option>
 					  </select>
 				</div>
 			</div>
@@ -348,7 +348,7 @@
 				<div class="row form-group mt-2 ms-2">
 					<div class="col-sm-12">
 						<div class="input-group date" id="datepicker">
-							<input type="date" class="form-control" id="Date">
+							<input type="date" class="form-control" id="date">
 							<span class="input-group-append">
 							</span>
 						</div>
@@ -362,7 +362,86 @@
 		</form>
 			<div class="modal-footer">
 			<button type="button" class="btn btn-light border" data-bs-dismiss="modal">Cansel</button>
-			<button type="button" class="btn btn-primary" onclick="saveTask()">Save</button>
+			<button type="button" class="btn btn-primary" onclick="saveTask()" id="Save">Save</button>
+			</div>
+
+	  </div>
+	</div>
+  </div>
+
+       <!-- Edit and update -->
+
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel1">Edit Task</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<form class="modal-body" id="modal1">
+			<label for="Title" class="col-sm-1 col-form-label">Title</label>
+			<div class="navbar navbar-light">
+				<div class="container-fluid">
+				  <div class="input-group">
+					<input type="text" class="form-control" id="Title1" aria-label="Username" aria-describedby="basic-addon1">
+				  </div>
+				</div>
+			</div>
+			<div class="mt-2">
+				<label for="Type" class="col-sm-1 col-form-label">Type</label>
+				<div class="ms-4">
+					<div class="form-check">
+						<input class="form-check-input" id="Feature1" name="Type" type="radio"  value="Feature">
+						<label for="Feature">Feature</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" id="Bug1" name="Type" type="radio"  value="Bug">
+						<label for="Bug">Bug</label>
+					</div>
+				</div>
+			</div>
+			<div class="mt-3">
+				<label for="Priority1" class="col-sm-1 col-form-label">Priority</label>
+				<div class="mt-2 ms-3">
+					<select class="form-select" id="priority1" aria-label="Default select example"> 
+						<option selected>Please select</option>
+						<option value="High">high</option>
+						<option value="Medium">medium</option>
+						<option value="Low">low</option>
+					  </select>
+				</div>
+			</div>
+			<div class="mt-3">
+				<label for="Status" class="col-sm-1 col-form-label">Status</label>
+				<div class="mt-2 ms-3">
+					<select class="form-select" id="Status1" aria-label="Default select example">
+						<option selected>Please select</option>
+						<option value="To Do">To Do</option>
+						<option value="In Progress">In Progress</option>
+						<option value="Done">Done</option>
+					</select>
+				</div>
+			</div>
+			<div class="mt-3">
+				<label for="date" class="col-sm-1 col-form-label">Date</label>
+				<div class="row form-group mt-2 ms-2">
+					<div class="col-sm-12">
+						<div class="input-group date" id="datepicker">
+							<input type="date" class="form-control" id="date1">
+							<span class="input-group-append">
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mt-3">
+				<label for="exampleFormControlTextarea1" class="form-label my-10px">Description</label>
+				<textarea class="form-control" id="Description1" rows="6"></textarea>
+			  </div>
+		</form>
+			<div class="modal-footer" id="modal-footer1">
+			<!-- <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Cansel</button>
+			<button type="button" class="btn btn-primary" onclick="saveTask()">Save</button> -->
 			</div>
 
 	  </div>
