@@ -72,19 +72,11 @@ function saveTask() {
     let new_date        = document.getElementById('date');
     let new_description = document.getElementById('Description');
 
-    let is_true;
-
-    for (let i = 0; i < new_type.length; i++) {
-        if (new_type[i].checked) {
-            is_true = new_type[i].value;
-        }
-    }
-
     // Créez task object
     let info_task = {
         id: all_tasks.length + 1,
         the_title       : new_title.value,
-        the_type        : is_true,
+        the_type        : whatsPriority(),
         the_priority    : new_priority.value,
         the_status      : new_status.value,
         the_date        : new_date.value,
@@ -123,6 +115,7 @@ function editTask(index) {
 
 function updateTask(idx) {
     // Remplacer ancienne task par nouvelle task
+    all_tasks[idx].the_type        = whatsPriority();
     all_tasks[idx].the_title       = document.getElementById("Title1").value;
     all_tasks[idx].the_priority    = document.getElementById("priority1").value;
     all_tasks[idx].the_status      = document.getElementById("Status1").value;
@@ -146,4 +139,16 @@ function deleteTask(id) {
         }
     }
     createTask();
+}
+
+function whatsPriority() {
+    let new_type = document.querySelectorAll('input[Type="radio"]');
+    let isTrue;
+    
+    for (let i = 0; i < new_type.length; i++) {
+      if (new_type[i].checked) {
+        isTrue = new_type[i].value;
+      }
+    }
+    return (isTrue);
 }
