@@ -20,7 +20,7 @@ function createTask() {
     // Afficher le boutton save
     for (let i = 0 ; i < all_tasks.length; i++) {
         let btn = `
-        <div class="d-flex justify-content-end">
+        <div class="d-flex border-top p-4">
             <button id="${all_tasks[i].id}" class="d-flex w-100 bg-white border-0">
                 <div class="text-green fs-5 ps-3 py-2">
                     <i class="`+((all_tasks[i].the_status == "To Do") ? "fa-regular fa-circle-question" : (all_tasks[i].the_status == "In Progress") ? "fas fa-circle-notch fa-spin" : "fa-regular fa-circle-check")+`"></i>
