@@ -66,7 +66,6 @@ function createTask() {
 function saveTask() {
     // Recuperer task attributes a partir les champs input
     let new_title       = document.getElementById('Title');
-    let new_type        = document.querySelectorAll('input[Type="radio"]');
     let new_priority    = document.getElementById('Priority');
     let new_status      = document.getElementById('Status');
     let new_date        = document.getElementById('date');
